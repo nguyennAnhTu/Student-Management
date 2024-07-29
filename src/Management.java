@@ -1,54 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Management {
-    private List<Student> students;
+    private static List<Student> students = new ArrayList<>();
     //Abstraction, List is an interface
-    private int numOfStudents;
+    private static int numOfStudents;
 
-    public Management() {
-        students = new ArrayList<>();
-        numOfStudents = 0;
-    }
-
-    private int existedId(String id) {
+    public static boolean existedId(String id) {
         for (int i = 0; i < numOfStudents; i++) {
             if (id.equals(students.get(i).getId())){
-                return i;
+                return true;
             }
         }
-        return -1;
+        return false;
     }
 
-    public void addStudent() {
-        Scanner sc = new Scanner(System.in);
-        Student newStudent = new Student();
-        String id;
-        String name;
-        int age;
-        String gender;
-        while (true) {
-            System.out.print("Enter student id: ");
-            id = sc.nextLine();
-            if (existedId(id) == -1) break;
-            else {
-                System.out.println("Id already exists!");
-            }
-        }
-        System.out.print("Enter student name: ");
-        name = sc.nextLine();
-        System.out.print("Enter student age: ");
-        age = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Enter student gender: ");
-        gender = sc.nextLine();
-        newStudent.setId(id);
-        newStudent.setName(name);
-        newStudent.setAge(age);
-        newStudent.setGender(gender);
-        students.add(newStudent);
-        System.out.println();
+    public void addStudent(Student student) {
+        students.add(student);
         numOfStudents++;
     }
 
