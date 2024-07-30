@@ -2,9 +2,7 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
-        Management sm = new Management();
-        Management sm2 = new Management();
-        Management sm3 = new Management();
+        Management management = new Management();
         String Id;
         while (true) {
             System.out.println("1. Add Student");
@@ -46,20 +44,20 @@ public class Menu {
                     newStudent.setAge(age);
                     newStudent.setGender(gender);
                     System.out.println();
-                    sm.add(newStudent);
+                    management.add(newStudent);
                     break;
                 case 2:
-                    sm.displayListStudent();
+                    management.displayListStudent();
                     break;
                 case 3:
                     System.out.print("Enter student ID: ");
                     Id = sc.next();
-                    sm2.display(sm.getStudent(Id));
+                    management.display(Id);
                     break;
                 case 4:
                     System.out.print("Enter student ID: ");
                     Id = sc.next();
-                    sm3.delete(sm.getStudent(Id));
+                    management.delete(Id);
                     break;
                 default:
                     System.out.println("Invalid choice, only choice 0-4");

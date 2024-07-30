@@ -3,7 +3,6 @@ import java.util.Map;
 
 class Management implements Manage<Student> {
     private static Map<String, Student> students = new HashMap<>();
-    //Abstraction, List is an interface
     //private static int numOfStudents;
 
     public static boolean existedId(String id) {
@@ -18,26 +17,24 @@ class Management implements Manage<Student> {
     }
 
     @Override
-    public void display(Student student){
-        if (student == null) System.out.println("Student with Id is not exist");
-        else
+    public void display(String id){
+        if (!existedId(id)) System.out.println("Student with Id is not exist");
+        else{
+            Student student = students.get(id);
             System.out.println(student.getId() + "\t" + student.getName() + "\t" + student.getAge() + "\t" + student.getGender());
-    }
-
-    public void displayListStudent(){
-        for (Student student : students.values()) {
-            display(student);
         }
     }
 
-    public Student getStudent (String id) {
-        return students.get(id);
+    public void displayListStudent(){
+        for (String studentId : students.keySet()) {
+            display(studentId);
+        }
     }
 
     @Override
-    public void delete(Student student) {
-        if (student == null) System.out.println("Student with Id is not exist");
+    public void delete(String id) {
+        if (!existedId(id)) System.out.println("Student with Id is not exist");
         else
-            students.remove(student.getId());
+            students.remove(id);
     }
 }

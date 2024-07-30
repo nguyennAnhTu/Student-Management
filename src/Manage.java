@@ -1,5 +1,5 @@
 public interface Manage<T> {
-    void display(T object);
+    void display(String s);
     void add(T object);
-    void delete(T object);
+    void delete(String s);
 }
