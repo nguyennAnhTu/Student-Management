@@ -1,49 +1,43 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Management {
-    private static List<Student> students = new ArrayList<>();
+class Management implements Manage<Student> {
+    private static Map<String, Student> students = new HashMap<>();
     //Abstraction, List is an interface
-    private static int numOfStudents;
+    //private static int numOfStudents;
 
     public static boolean existedId(String id) {
-        for (int i = 0; i < numOfStudents; i++) {
-            if (id.equals(students.get(i).getId())){
-                return true;
-            }
-        }
-        return false;
+        return students.containsKey(id);
     }
 
-    public void addStudent(Student student) {
-        students.add(student);
-        numOfStudents++;
-    }
-
-    public void displayListStudent(){
-        for (Student student : students) {
-            display(student);
+    @Override
+    public void add(Student student) {
+        if (!existedId(student.getId())) {
+            students.put(student.getId(), student);
         }
     }
 
-    public Student getStudent (String id) {
-        for (Student student : students) {
-            if(student.getId().equals(id)) {
-                return student;
-            }
-        }
-        return null;
-    }
-
+    @Override
     public void display(Student student){
         if (student == null) System.out.println("Student with Id is not exist");
         else
             System.out.println(student.getId() + "\t" + student.getName() + "\t" + student.getAge() + "\t" + student.getGender());
     }
 
-    public void deleteStudent(Student student) {
+    public void displayListStudent(){
+        for (Student student : students.values()) {
+            display(student);
+        }
+    }
+
+    public Student getStudent (String id) {
+        return students.get(id);
+    }
+
+    @Override
+    public void delete(Student student) {
         if (student == null) System.out.println("Student with Id is not exist");
         else
-            students.remove(student);
+            students.remove(student.getId());
     }
 }

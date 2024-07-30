@@ -18,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -39,6 +40,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JAVA/NewModel&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,7 +82,9 @@
       <updated>1722174318452</updated>
       <workItem from="1722174319610" duration="2561000" />
       <workItem from="1722179299884" duration="2763000" />
-      <workItem from="1722216162589" duration="434000" />
+      <workItem from="1722216162589" duration="1378000" />
+      <workItem from="1722262030806" duration="6225000" />
+      <workItem from="1722301580482" duration="1816000" />
     </task>
     <servers />
   </component>
