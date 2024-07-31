@@ -1,7 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
-class Management implements Manage<Student> {
+class Management implements Manage {
     private static Map<String, Student> students = new HashMap<>();
     //private static int numOfStudents;
 
@@ -28,6 +29,30 @@ class Management implements Manage<Student> {
     public void displayListStudent(){
         for (String studentId : students.keySet()) {
             display(studentId);
+        }
+    }
+
+    @Override
+    public void update(String id) {
+        if (!existedId(id)) System.out.println("Student with Id is not exist");
+        else {
+            Scanner sc = new Scanner(System.in);
+            String name;
+            int age;
+            String gender;
+            Student student = students.get(id);
+            System.out.print("Enter new name: ");
+            name = sc.nextLine();
+            System.out.print("Enter new age: ");
+            age = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter new gender: ");
+            gender = sc.nextLine();
+            student.setName(name);
+            student.setAge(age);
+            student.setGender(gender);
+            students.put(student.getId(), student);
+            System.out.println("Student with Id: " + id + " updated");
         }
     }
 

@@ -9,6 +9,7 @@ public class Menu {
             System.out.println("2. Display All Students");
             System.out.println("3. Display a student by ID");
             System.out.println("4. Delete a student by ID");
+            System.out.println("5. Update a student by ID");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
 
@@ -51,13 +52,18 @@ public class Menu {
                     break;
                 case 3:
                     System.out.print("Enter student ID: ");
-                    Id = sc.next();
+                    Id = sc.nextLine();
                     management.display(Id);
                     break;
                 case 4:
                     System.out.print("Enter student ID: ");
-                    Id = sc.next();
+                    Id = sc.nextLine();
                     management.delete(Id);
+                    break;
+                case 5:
+                    System.out.print("Enter student ID: ");
+                    Id = sc.nextLine();
+                    management.update(Id);
                     break;
                 default:
                     System.out.println("Invalid choice, only choice 0-4");

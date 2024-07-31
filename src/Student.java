@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Student {
     private String id;
     private String name;
